@@ -1,8 +1,12 @@
 import express from 'express'
 import config from './config'
+import setMiddleware from './middleware'
+import dbConnect from './middleware/dbconnect'
 import connectGraphQL from './graphql'
 
 const server = express()
+setMiddleware(server)
+dbConnect()
 connectGraphQL(server)
 
 server.get('*', (req, res) => {
@@ -10,5 +14,5 @@ server.get('*', (req, res) => {
 })
 
 server.listen(config.server.port, () => {
-  console.log(`Server is running on http://localhost:${config.server.port}`)
+  console.log(`GraphQL server is running on http://localhost:${config.server.port}`)
 })
