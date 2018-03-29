@@ -1,9 +1,11 @@
 import express from 'express'
 import config from './config'
+import connectGraphQL from './graphql'
 
 const server = express()
+connectGraphQL(server)
 
-server.get('/', (req, res) => {
+server.get('*', (req, res) => {
   res.send('Server Home')
 })
 
