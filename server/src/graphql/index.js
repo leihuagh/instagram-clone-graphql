@@ -2,6 +2,7 @@ import bodyParser from 'body-parser'
 import { graphqlExpress, graphiqlExpress } from 'apollo-server-express'
 import config from './../config'
 import schema from './schema'
+import models from './../models'
 
 const connectGraphQL = (server) => {
   server.use(
@@ -9,6 +10,9 @@ const connectGraphQL = (server) => {
     bodyParser.json(),
     graphqlExpress({
       schema,
+      context: {
+        models,
+      },
     }),
   )
   server.get('/', graphiqlExpress({ endpointURL: `/${config.graphql.endpoint}` }))
