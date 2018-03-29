@@ -1,9 +1,6 @@
 export default {
   Query: {
-    allUsers: (parent, args, { models }) => {
-      const users = models.User.find()
-      return users
-    },
+    allUsers: (parent, args, { models }) => models.User.find(),
     getUser: (parent, args, { models }) => models.User.findOne(args),
   },
   Mutation: {
