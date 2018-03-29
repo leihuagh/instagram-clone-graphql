@@ -15,7 +15,10 @@ const connectGraphQL = (server) => {
       },
     }),
   )
-  server.get('/', graphiqlExpress({ endpointURL: `/${config.graphql.endpoint}` }))
+  server.get(
+    `/${config.graphql.viewer}`,
+    graphiqlExpress({ endpointURL: `/${config.graphql.endpoint}` }),
+  )
 }
 
 export default connectGraphQL

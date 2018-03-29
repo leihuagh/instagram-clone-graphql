@@ -6,7 +6,7 @@ export default `
   }
 
   type Query{
-    allUsers: [User!]!
+    allUsers: [User]!
     getUser(_id: ID!): User!
   }
 

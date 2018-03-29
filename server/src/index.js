@@ -14,5 +14,5 @@ server.get('*', (req, res) => {
 })
 
 server.listen(config.server.port, () => {
-  console.log(`GraphQL server is running on http://localhost:${config.server.port}`)
+  console.log(`GraphQL server is running on http://localhost:${config.server.port}/${config.graphql.viewer}`)
 })
